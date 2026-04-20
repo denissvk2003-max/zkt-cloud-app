@@ -1,7 +1,7 @@
 # Zadanie 2 – Kubernetes webová aplikácia
 
 ## Autor
-Meno a priezvisko: [DOPLŇ]
+Meno a priezvisko: [Denis Vajda]
 
 ## Opis aplikácie
 
@@ -45,17 +45,4 @@ Frontend beží na porte 80 a cez Nginx reverse proxy posiela požiadavky `/api/
 
 ```bash
 ./prepare-app.sh
-
-## Návod na spustenie aplikácie
-
-./start-app.sh
-
-## Návod na zastavenie aplikácie
-
-./stop-app.sh
-
-## Návod ako si pozrieť aplikáciu v prehliadači
-
-http://localhost:30080
-
 
