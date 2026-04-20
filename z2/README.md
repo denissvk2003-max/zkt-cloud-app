@@ -45,4 +45,7 @@ Frontend beží na porte 80 a cez Nginx reverse proxy posiela požiadavky `/api/
 
 ```bash
 ./prepare-app.sh
-
+./start-app.sh
+./stop-app.sh
+# Otvoriť
+http://localhost:30080
