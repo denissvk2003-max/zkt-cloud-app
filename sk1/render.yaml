@@ -18,11 +18,8 @@ services:
     region: frankfurt
     plan: free
     envVars:
-      - key: BACKEND_HOSTPORT
-        fromService:
-          type: web
-          name: denisnotes-backend
-          property: hostport
+      - key: BACKEND_URL
+        value: https://denisnotes-backend.onrender.com
 
 databases:
   - name: denisnotes-db

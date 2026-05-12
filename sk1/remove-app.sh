@@ -17,7 +17,7 @@ az group delete \
   --name "$RESOURCE_GROUP" \
   --yes \
   --no-wait
-
+z
 echo "Render resources are managed by Render Blueprint."
 echo "To remove the app:"
 echo "1. Open Render Dashboard"
