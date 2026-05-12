@@ -1,15 +1,19 @@
+# Nginx konfigurácia pre frontend kontajner
 server {
+    # Render nastaví port cez environment variable PORT
     listen ${PORT};
 
+    # Logy pre prístupy a chyby
     access_log /var/log/nginx/access.log;
     error_log /var/log/nginx/error.log;
 
+    # Statické súbory frontendu
     location / {
         root /usr/share/nginx/html;
         index index.html;
         try_files $uri $uri/ /index.html;
     }
-
+    # Proxy pre API požiadavky na backend
     location /api/ {
         proxy_pass ${BACKEND_URL};
         proxy_set_header Host $host;

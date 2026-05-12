@@ -1,0 +1,88 @@
+Render:
+Render je verejný cloud na nasadzovanie webových aplikácií, databáz a Docker kontajnerov.
+
+Ako aplikácia funguje:
+Aplikácia slúži na pridávanie a zobrazovanie poznámok.
+Používateľ môže vytvoriť poznámku a tá sa uloží do PostgreSQL databázy.
+
+Komponenty aplikácie:
+Frontend:
+- zobrazuje webovú stránku používateľovi
+- beží v Docker kontajneri s nginx
+
+Backend:
+- Flask API v Pythone
+- spracováva HTTP požiadavky
+- komunikuje s databázou
+
+Databáza:
+- PostgreSQL
+- ukladá poznámky
+
+Docker:
+Docker je platforma na spúšťanie aplikácií v kontajneroch.
+
+Prečo Docker:
+Aby mala aplikácia rovnaké prostredie lokálne aj v cloude.
+
+Dockerfile:
+Dockerfile definuje ako sa vytvorí Docker image aplikácie.
+
+render.yaml:
+render.yaml je Blueprint konfigurácia pre Render.
+Automaticky vytvára:
+- frontend service
+- backend service
+- PostgreSQL databázu
+
+Ako frontend komunikuje s backendom:
+Frontend posiela HTTP požiadavky na backend API cez HTTPS URL.
+
+Ako backend komunikuje s databázou:
+Backend používa psycopg2 a DATABASE_URL environment variable.
+
+PostgreSQL:
+PostgreSQL je relačná databáza na ukladanie dát.
+
+Prečo PostgreSQL:
+Pretože dáta zostanú uložené aj po refreshi alebo reštarte aplikácie.
+
+Environment variables:
+Premenné prostredia slúžia na konfiguráciu aplikácie bez ukladania hesiel do kódu.
+
+Aké environment variables používam:
+- DATABASE_URL
+- BACKEND_URL
+
+HTTPS:
+HTTPS zabezpečuje šifrovanú komunikáciu medzi používateľom a serverom.
+
+Nasadenie aplikácie:
+Po pushnutí na GitHub Render automaticky spustí nový deploy.
+
+Ako si viem pozrieť logy:
+V Render Dashboard → Services → Logs.
+
+Automatický restart:
+Render automaticky reštartuje service pri chybe alebo novom deployi.
+
+Databáza:
+Backend vytvorí tabuľku notes a zapisuje do nej poznámky.
+
+Čo obsahuje render.yaml:
+- konfiguráciu frontend service
+- konfiguráciu backend service
+- konfiguráciu PostgreSQL databázy
+- environment variables
+
+Čo obsahuje prepare-app.sh:
+Kontrolu súborov a test Docker buildov pred deployom.
+
+Čo obsahuje remove-app.sh:
+Stručný návod na odstránenie služieb z Render dashboardu.
+
+GitHub:
+GitHub slúži na ukladanie zdrojových kódov a automatický deploy do Renderu.
+
+Automatický deploy:
+Po git push Render automaticky vytvorí nový deploy aplikácie.

@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Render služby sa v tomto riešení odstraňujú cez Render Dashboard.
+# Skript slúži ako návod na zrušenie všetkých vytvorených služieb.
+
 if [ ! -f .env ]; then
   echo "ERROR: Missing .env file."
   exit 1

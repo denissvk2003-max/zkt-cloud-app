@@ -1,4 +1,4 @@
-flask
-flask-cors
-psycopg2-binary
-gunicorn
+flask  # backend API
+flask-cors # komunikácia frontend/backend
+psycopg2-binary # PostgreSQL pripojenie
+gunicorn # produkčný server pre Flask
