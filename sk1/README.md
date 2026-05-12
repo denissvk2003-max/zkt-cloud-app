@@ -72,11 +72,9 @@ Prístupové údaje, hlavne DB_PASSWORD, sú uložené iba lokálne v `.env`.
 - `frontend/index.html` – webové rozhranie
 - `frontend/default.conf.template` – Nginx konfigurácia
 - `frontend/Dockerfile` – Dockerfile pre frontend
-- `prepare-app.sh` – vytvorí Azure služby a nasadí aplikáciu
-- `remove-app.sh` – odstráni Azure resource group a všetky zdroje
-- `backup-db.sh` – vytvorí zálohu databázy
-- `logs.sh` – zobrazí logy aplikácie
-- `.env.example` – ukážka konfigurácie
+- `render.yaml` – Render Blueprint konfigurácia, ktorá automaticky vytvorí frontend service, backend service a PostgreSQL databázu v cloud prostredí Render
+- `prepare-app.sh` – skript na kontrolu súborov a test Docker buildov pred nasadením aplikácie
+- `remove-app.sh` – návod na odstránenie Render služieb a databázy
 - `.gitignore` – súbory, ktoré sa neposielajú do Gitu
 
 ## Podmienky spustenia skriptov
