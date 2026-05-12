@@ -1,6 +1,5 @@
 server {
-    listen 80;
-    server_name localhost;
+    listen ${PORT};
 
     access_log /var/log/nginx/access.log;
     error_log /var/log/nginx/error.log;
@@ -12,7 +11,7 @@ server {
     }
 
     location /api/ {
-        proxy_pass ${BACKEND_URL}/api/;
+        proxy_pass http://${BACKEND_HOSTPORT}/api/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
     }

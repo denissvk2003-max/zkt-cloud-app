@@ -1,12 +1,16 @@
+# Flask backend server
 from flask import Flask, request, jsonify
+# Povolenie komunikácie medzi frontendom a backendom
 from flask_cors import CORS
 import os
+# PostgreSQL komunikácia
 import psycopg2
 import time
 
 app = Flask(__name__)
 CORS(app)
 
+# Pripojenie k databáze PostgreSQL
 DB_HOST = os.getenv("DB_HOST", "db-service")
 DB_NAME = os.getenv("DB_NAME", "notesdb")
 DB_USER = os.getenv("DB_USER", "notesuser")
@@ -30,6 +34,7 @@ def init_db():
             conn = get_connection()
             cur = conn.cursor()
             cur.execute("""
+                        # Vytvorenie tabuľky notes ak ešte neexistuje
                 CREATE TABLE IF NOT EXISTS notes (
                     id SERIAL PRIMARY KEY,
                     content TEXT NOT NULL
@@ -50,7 +55,7 @@ def init_db():
 def health():
     return jsonify({"status": "ok"}), 200
 
-
+# API endpoint pre získanie všetkých poznámok
 @app.route("/api/notes", methods=["GET"])
 def get_notes():
     try:
@@ -66,7 +71,7 @@ def get_notes():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
+# API endpoint pre pridanie poznámky
 @app.route("/api/notes", methods=["POST"])
 def add_note():
     data = request.get_json()

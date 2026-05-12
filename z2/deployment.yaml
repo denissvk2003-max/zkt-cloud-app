@@ -1,4 +1,5 @@
 apiVersion: apps/v1
+# Deployment pre backend aplikáciu
 kind: Deployment
 metadata:
   name: backend
@@ -13,6 +14,7 @@ spec:
       labels:
         app: backend
     spec:
+    # Backend kontajner používa Flask API
       containers:
         - name: backend
           image: z2-backend:latest
@@ -32,6 +34,7 @@ spec:
               value: "5432"
 ---
 apiVersion: apps/v1
+# Deployment pre frontend aplikáciu
 kind: Deployment
 metadata:
   name: frontend
@@ -46,6 +49,7 @@ spec:
       labels:
         app: frontend
     spec:
+    # Frontend používa nginx server
       containers:
         - name: frontend
           image: z2-frontend:latest

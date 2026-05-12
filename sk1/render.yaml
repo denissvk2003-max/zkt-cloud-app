@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: denisnotes-backend
+    runtime: docker
+    rootDir: sk1/backend
+    region: frankfurt
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: denisnotes-db
+          property: connectionString
+
+  - type: web
+    name: denisnotes-frontend
+    runtime: docker
+    rootDir: sk1/frontend
+    region: frankfurt
+    plan: free
+    envVars:
+      - key: BACKEND_HOSTPORT
+        fromService:
+          type: web
+          name: denisnotes-backend
+          property: hostport
+
+databases:
+  - name: denisnotes-db
+    databaseName: notesdb
+    user: notesuser
+    region: frankfurt
+    plan: free

@@ -1,9 +1,11 @@
 apiVersion: v1
+# Service pre frontend aplikáciu
 kind: Service
 metadata:
   name: frontend-service
   namespace: zkt-notes
 spec:
+# NodePort sprístupní frontend mimo Kubernetes clusteru
   type: NodePort
   selector:
     app: frontend
@@ -16,6 +18,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+# Service pre backend komunikáciu
   name: backend-service
   namespace: zkt-notes
 spec:
@@ -30,6 +33,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+# Service pre PostgreSQL databázu
   name: db-service
   namespace: zkt-notes
 spec:

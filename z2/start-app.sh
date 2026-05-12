@@ -3,9 +3,13 @@ set -e
 
 echo "Starting Kubernetes app..."
 
+# Vytvorenie namespace
 kubectl apply -f namespace.yaml
+# Vytvorenie services
 kubectl apply -f service.yaml
+# Spustenie databázy cez StatefulSet
 kubectl apply -f statefulset.yaml
+# Spustenie frontend a backend deploymentov
 kubectl apply -f deployment.yaml
 
 kubectl rollout status statefulset/postgres -n zkt-notes

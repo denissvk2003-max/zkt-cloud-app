@@ -18,5 +18,9 @@ az group delete \
   --yes \
   --no-wait
 
-echo "Delete request sent."
-echo "Azure is removing all related resources in the background."
+echo "Render resources are managed by Render Blueprint."
+echo "To remove the app:"
+echo "1. Open Render Dashboard"
+echo "2. Open the Blueprint/project"
+echo "3. Delete frontend service, backend service and PostgreSQL database"
+echo "4. Confirm deletion"
